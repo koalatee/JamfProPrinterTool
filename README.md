@@ -5,7 +5,7 @@ An App that allows techs to manage printers assigned to "buildings" (categories)
 
 Forked from [MLBZ521/JamfProPrinterTool](https://github.com/MLBZ521/JamfProPrinterTool) as I needed it for buildings, not sites.
 
-<center><img src="https://github.com/mlbz521/JamfProPrinterTool/blob/master/Jamf Pro Printer Tool.png" /></center>
+<center><img src="https://github.com/koalatee/JamfProPrinterTool/blob/master/Jamf Pro Printer Tool.png" /></center>
 
 
 ## About
