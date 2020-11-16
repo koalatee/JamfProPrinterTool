@@ -21,12 +21,12 @@ from xml.etree import ElementTree
 from xml.sax.saxutils import escape
 
 
-__applicaiton__ = "Jamf Pro Printer Tool"
-__version__ = "v1.0.1"
-__author__ = "Zack Thompson"
+__application__ = "Jamf Pro Printer Tool"
+__version__ = "v1.0.0"
+__author__ = "James Journey"
 __created__ = "8/11/2020"
-__updated__ = "9/3/2020"
-__description__ = "This script utilizes the PySide2 Library (Qt) to generate a GUI that Site Admins can use to manage their own printers within Jamf Pro."
+__updated__ = "11/13/2020"
+__description__ = "This script utilizes the PySide2 Library (Qt) to generate a GUI that Admins can use to manage their own printers within Jamf Pro."
 __about__ = """<html><head/><body><p><strong>Created By:</strong>  Zack Thompson</p>
 
 <p><strong>Contributors:</strong></p>
@@ -79,22 +79,22 @@ class Ui_MainWindow(object):
         self.progress_bar.setGeometry(QtCore.QRect(20, 460, 511, 31))
         self.progress_bar.setProperty("value", 0)
         self.progress_bar.setObjectName("progress_bar")
-        self.frame_sites = QtWidgets.QFrame(self.centralwidget)
-        self.frame_sites.setGeometry(QtCore.QRect(10, 10, 541, 81))
-        self.frame_sites.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_sites.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_sites.setObjectName("frame_sites")
-        self.label_sites = QtWidgets.QLabel(self.frame_sites)
-        self.label_sites.setGeometry(QtCore.QRect(10, 10, 401, 16))
-        self.label_sites.setObjectName("label_sites")
-        self.button_get_sites = QtWidgets.QPushButton(self.frame_sites)
-        self.button_get_sites.setGeometry(QtCore.QRect(10, 40, 112, 32))
-        self.button_get_sites.setStatusTip("")
-        self.button_get_sites.setObjectName("button_get_sites")
-        self.combo_sites = QtWidgets.QComboBox(self.frame_sites)
-        self.combo_sites.setEnabled(False)
-        self.combo_sites.setGeometry(QtCore.QRect(130, 40, 231, 32))
-        self.combo_sites.setObjectName("combo_sites")
+        self.frame_buildings = QtWidgets.QFrame(self.centralwidget)
+        self.frame_buildings.setGeometry(QtCore.QRect(10, 10, 541, 81))
+        self.frame_buildings.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buildings.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buildings.setObjectName("frame_buildings")
+        self.label_buildings = QtWidgets.QLabel(self.frame_buildings)
+        self.label_buildings.setGeometry(QtCore.QRect(10, 10, 401, 16))
+        self.label_buildings.setObjectName("label_buildings")
+        self.button_get_buildings = QtWidgets.QPushButton(self.frame_buildings)
+        self.button_get_buildings.setGeometry(QtCore.QRect(10, 40, 112, 32))
+        self.button_get_buildings.setStatusTip("")
+        self.button_get_buildings.setObjectName("button_get_buildings")
+        self.combo_buildings = QtWidgets.QComboBox(self.frame_buildings)
+        self.combo_buildings.setEnabled(False)
+        self.combo_buildings.setGeometry(QtCore.QRect(130, 40, 231, 32))
+        self.combo_buildings.setObjectName("combo_buildings")
         self.frame_jps_printers = QtWidgets.QFrame(self.centralwidget)
         self.frame_jps_printers.setGeometry(QtCore.QRect(10, 320, 541, 131))
         self.frame_jps_printers.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -181,9 +181,9 @@ class Ui_MainWindow(object):
         self.lineEdit_printer_cups_name.setReadOnly(True)
         self.lineEdit_printer_cups_name.setObjectName("lineEdit_printer_cups_name")
         self.gridLayout.addWidget(self.lineEdit_printer_cups_name, 4, 2, 1, 1)
-        self.label_site = QtWidgets.QLabel(self.layoutWidget)
-        self.label_site.setObjectName("label_site")
-        self.gridLayout.addWidget(self.label_site, 6, 0, 1, 1)
+        self.label_building = QtWidgets.QLabel(self.layoutWidget)
+        self.label_building.setObjectName("label_building")
+        self.gridLayout.addWidget(self.label_building, 6, 0, 1, 1)
         self.label_printer_ppd_path = QtWidgets.QLabel(self.layoutWidget)
         self.label_printer_ppd_path.setObjectName("label_printer_ppd_path")
         self.gridLayout.addWidget(self.label_printer_ppd_path, 5, 0, 1, 1)
@@ -208,10 +208,10 @@ class Ui_MainWindow(object):
         self.label_printer_location = QtWidgets.QLabel(self.layoutWidget)
         self.label_printer_location.setObjectName("label_printer_location")
         self.gridLayout.addWidget(self.label_printer_location, 1, 0, 1, 1)
-        self.lineEdit_site = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit_site.setReadOnly(True)
-        self.lineEdit_site.setObjectName("lineEdit_site")
-        self.gridLayout.addWidget(self.lineEdit_site, 6, 2, 1, 1)
+        self.lineEdit_building = QtWidgets.QLineEdit(self.layoutWidget)
+        self.lineEdit_building.setReadOnly(True)
+        self.lineEdit_building.setObjectName("lineEdit_building")
+        self.gridLayout.addWidget(self.lineEdit_building, 6, 2, 1, 1)
         self.lineEdit_created_by = QtWidgets.QLineEdit(self.layoutWidget)
         self.lineEdit_created_by.setReadOnly(True)
         self.lineEdit_created_by.setObjectName("lineEdit_created_by")
@@ -248,8 +248,8 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuSettings.menuAction())
 
-        QtWidgets.QWidget.setTabOrder(self.button_get_sites, self.combo_sites)
-        QtWidgets.QWidget.setTabOrder(self.combo_sites, self.qlist_local_printers)
+        QtWidgets.QWidget.setTabOrder(self.button_get_buildings, self.combo_buildings)
+        QtWidgets.QWidget.setTabOrder(self.combo_buildings, self.qlist_local_printers)
         QtWidgets.QWidget.setTabOrder(self.qlist_local_printers, self.button_create)
         QtWidgets.QWidget.setTabOrder(self.button_create, self.button_get_printers)
         QtWidgets.QWidget.setTabOrder(self.button_get_printers, self.combo_printers)
@@ -261,8 +261,8 @@ class Ui_MainWindow(object):
         QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_model, self.lineEdit_printer_device_uri)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_device_uri, self.lineEdit_printer_cups_name)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_cups_name, self.lineEdit_printer_ppd_file_path)
-        QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_ppd_file_path, self.lineEdit_site)
-        QtWidgets.QWidget.setTabOrder(self.lineEdit_site, self.lineEdit_created_by)
+        QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_ppd_file_path, self.lineEdit_building)
+        QtWidgets.QWidget.setTabOrder(self.lineEdit_building, self.lineEdit_created_by)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_created_by, self.lineEdit_updated_by)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_updated_by, self.textEdit_printer_ppd_contents)
 
@@ -272,20 +272,20 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Jamf Pro Printer Tool"))
-        self.label_sites.setText(_translate("MainWindow", "Select the Site to work in:"))
-        self.button_get_sites.setText(_translate("MainWindow", "Get Sites"))
+        self.label_buildings.setText(_translate("MainWindow", "Select the Building to work in:"))
+        self.button_get_buildings.setText(_translate("MainWindow", "Get Buildings"))
         self.label_printers.setText(_translate("MainWindow", "Select the printer you want to modify:"))
         self.button_get_printers.setText(_translate("MainWindow", "Get Printers"))
         self.button_update_printer.setText(_translate("MainWindow", "Update Printer"))
         self.button_delete_printer.setText(_translate("MainWindow", "Delete Printer"))
-        self.label_create.setText(_translate("MainWindow", "Select the printer you want to use to create or update in Jamf Pro:"))
+        self.label_create.setText(_translate("MainWindow", "Select the local printer you want to use to create or update in Jamf Pro:"))
         self.button_create.setText(_translate("MainWindow", "Create"))
         self.label_updated_by.setText(_translate("MainWindow", "Updated By"))
         self.label_created_by.setText(_translate("MainWindow", "Created By"))
         self.label_printer_cups_name.setText(_translate("MainWindow", "CUPS Name"))
         self.label_printer_device_uri.setText(_translate("MainWindow", "Device URI"))
         self.label_printer_model.setText(_translate("MainWindow", "Model"))
-        self.label_site.setText(_translate("MainWindow", "Site"))
+        self.label_building.setText(_translate("MainWindow", "building"))
         self.label_printer_ppd_path.setText(_translate("MainWindow", "PPD File Path"))
         self.label_printer_ppd_contents.setText(_translate("MainWindow", "PPD Contents"))
         self.label_printer_display_name.setText(_translate("MainWindow", "Display Name"))
@@ -363,10 +363,10 @@ class Ui_LoginWindow(object):
     def retranslateUi(self, LoginWindow):
         _translate = QtCore.QCoreApplication.translate
         LoginWindow.setWindowTitle(_translate("LoginWindow", "Login"))
-        self.label_description.setText(_translate("LoginWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Enter your Site Admin credentials.</span></p></body></html>"))
+        self.label_description.setText(_translate("LoginWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Enter your jamf credentials.</span></p></body></html>"))
         self.label_username.setText(_translate("LoginWindow", "Username:  "))
         self.label_password.setText(_translate("LoginWindow", "Password:  "))
-        self.label_heading.setText(_translate("LoginWindow", "<html><head/><body><p>To determine which Sites you manage, please authenticate.</p></body></html>"))
+        self.label_heading.setText(_translate("LoginWindow", "<html><head/><body><p>To choose from a building, please authenticate.</p></body></html>"))
         self.buttonOK.setText(_translate("LoginWindow", "OK"))
         self.buttonCancel.setText(_translate("LoginWindow", "Cancel"))
 
@@ -490,8 +490,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # When the Clear API Token Action is triggered
         self.actionClearAPIToken.triggered.connect(self.clearAPIToken)
 
-        # When Get Sites button is clicked
-        self.button_get_sites.clicked.connect(self.run_get_site_access)
+        # When Get buildings button is clicked
+        self.button_get_buildings.clicked.connect(self.run_get_building_access)
 
         # When a printer is selected in the QList of local printers
         self.qlist_local_printers.currentTextChanged.connect(self.displayPrinterDetails)
@@ -513,8 +513,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # When the Delete Printer is clicked
         self.button_delete_printer.clicked.connect(self.run_delete_printer)
 
-        # Repopulate the combobox when the Site combobox value has changed
-        self.combo_sites.currentTextChanged.connect(self.populatePrinterComboBox)
+        # Repopulate the combobox when the building combobox value has changed
+        self.combo_buildings.currentTextChanged.connect(self.populatePrinterComboBox)
 
         # Setup to display login window/login prompt
         self.displayLoginWindow = WorkerSignals()
@@ -527,8 +527,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def run_get_local_printers(self):
         self.worker_thread(self.get_local_printers)
 
-    def run_get_site_access(self):
-        self.worker_thread(self.clickedGetSites)
+    def run_get_building_access(self):
+        self.worker_thread(self.clickedGetbuildings)
 
     def run_create_printer(self):
         self.worker_thread(self.clickedCreatePrinter)
@@ -677,7 +677,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # print("Prompting for credentials...")
 
         # Update Status Bar and Pulse Progress Bar
-        self.update_worker({ "msg": "Provide your Site Admin credentials...", "pb_type": "Pulse" })
+        self.update_worker({ "msg": "Provide your jamf credentials...", "pb_type": "Pulse" })
 
         # Display Login UI
         self.login = LoginWindow(parent=self)
@@ -824,9 +824,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         finished_callback.emit("Querying local printers...  [COMPLETE]")
 
 
-    def clickedGetSites(self, progress_callback, finished_callback, warning_callback):
+    def clickedGetbuildings(self, progress_callback, finished_callback, warning_callback):
         """
-        Handles the "Get Sites" button click.
+        Handles the "Get buildings" button click.
 
         Args:
             progress_callback:  A callback function to update the progress and status bars
@@ -872,7 +872,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                     # Update Status Bar and Pulse Progress Bar
                     warning_callback.emit("ERROR:  Failed to authenticate the provided credentials!")
-                    print("ERROR:  Failed to authenticate Site Admin Credentials!")
+                    print("ERROR:  Failed to authenticate jamf Admin Credentials!")
                     print("ERROR:  Return Code {}".format(self.api_token_results['status']))
                     print(self.api_token_results['error'])
                     return
@@ -881,32 +881,36 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 progress_callback.emit({ "msg": "Requesting API Token...  [SUCCESS]" })
 
                 # Update Status Bar
-                progress_callback.emit({ "msg": "Collecting Site Access Permissions..." })
+                progress_callback.emit({ "msg": "Collecting jamf building info..." })
 
                 # Get Site Access Function
-                self.getSiteAccess(warning_callback)
+                self.getbuildings(warning_callback)
 
-                # print("Number of Sites:  {}".format(len(self.site_names)))
-                # print("List of Sites:  {}".format(self.site_names))
+                # print("Number of buildings:  {}".format(len(self.building_names)))
+                # print("List of buildings:  {}".format(self.building_names))
+                progress_callback.emit({ "msg": "success, populating..." })
 
-                if len(self.site_names) > 1:
+                if len(self.building_names) > 1:
 
                     # Update Status Bar
-                    progress_callback.emit({ "msg": "Collecting Site Access Permissions...  [SUCCESS]" })
+                    progress_callback.emit({ "msg": "Collecting Building Access Permissions...  [SUCCESS]" })
+                    #print(building_names)
+                    print(self.building_names)
 
-                    # Enable the Site ComboBox, clear it,and add the Site names
-                    self.combo_sites.setEnabled(True)
-                    self.combo_sites.clear()
-                    self.combo_sites.addItems(sorted(self.site_names))
+                    # Enable the building ComboBox, clear it,and add the building names
+                    self.combo_buildings.setEnabled(True)
+                    self.combo_buildings.clear()
+                    self.combo_buildings.addItems(sorted(self.building_names))
 
                     # Update Status Bar and Progress Bar
-                    finished_callback.emit("Sites populated")
+                    finished_callback.emit("Buildings populated")
 
                     # Enable Buttons
                     self.button_create.setEnabled(True)
                     self.button_get_printers.setEnabled(True)
 
                 else:
+                    progress_callback.emit({ "msg": "Building list is empty" })
                     return
 
             except:
@@ -914,7 +918,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         else:
             # print("User clicked cancel")
-            finished_callback.emit("Canceled:  Site Admin credentials not provided")
+            finished_callback.emit("Canceled:  jamf Admin credentials not provided")
 
 
     def clickedCreatePrinter(self, progress_callback, finished_callback, warning_callback):
@@ -934,15 +938,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         progress_callback.emit({ "msg": "Creating selected printer in Jamf Pro...", "pb_type": "Pulse" })
 
         # Get the selected values
-        selected_site = self.selectedComboBoxValue(self.combo_sites)
+        selected_building = self.selectedComboBoxValue(self.combo_buildings)
         selected_local_printer = self.selectedListValue(self.qlist_local_printers)
-        print("Selected printer to CREATE '{}' in '{}'".format(selected_local_printer, selected_site))
+        print("Selected printer to CREATE '{}' in '{}'".format(selected_local_printer, selected_building))
 
         # Ensure both of the required items have a selection
-        if selected_site == None or selected_local_printer == None:
+        if selected_building == None or selected_local_printer == None:
 
             # Update Status Bar and Progress Bar
-            finished_callback.emit("You must select a local printer and Site to create a new printer in Jamf Pro.")
+            finished_callback.emit("You must select a local printer and building to create a new printer in Jamf Pro.")
 
             # Enable Button
             self.button_create.setEnabled(True)
@@ -965,13 +969,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     <model>{model}</model> \
                     <ppd>{cups}.ppd</ppd> \
                     <ppd_contents>{contents}</ppd_contents> \
-                    <notes>{{ \"Site\": \"{site}\", \"Created_by\": \"{user}\", \"Updated_by\": \"\"}}</notes> \
+                    <notes>{{ \"Created_by\": \"{user}\", \"Updated_by\": \"\"}}</notes> \
                     <ppd_path>{path}</ppd_path> \
                     </printer>".format(
                         name=printer.display_name, uri=printer.device_uri, 
                         cups=printer.cups_name, location=printer.location, 
                         model=printer.model, contents=escape(printer.ppd_contents), 
-                        site=selected_site, user=self.sa_username, path=printer.ppd_path)
+                        building=selected_building, user=self.sa_username, path=printer.ppd_path)
 
                 # Setup API Resource and Headers
                 api_Resource_Printers_Create = "{}JSSResource/printers/id/0".format(self.jps_url)
@@ -980,7 +984,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 try:
 
                     # POST to create a new printer in the JPS.
-                    response_create_printer = requests.post(url=api_Resource_Printers_Create, headers=headers, data=payload.encode('utf-8'))
+                    response_create_printer = requests.post(url=api_Resource_Printers_Create, headers=headers, verify=False, data=payload.encode('utf-8'))
 
                     if response_create_printer.status_code != 201:
 
@@ -995,6 +999,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                         # Update Status Bar and Progress Bar
                         finished_callback.emit("Creating selected printer in Jamf Pro...  [COMPLETE]")
+
+                        # post ticket (using runbook)
+                        #try:
 
                 except:
 
@@ -1020,16 +1027,24 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Disable Button so it can't be clicked multiple times
         self.button_get_printers.setEnabled(False)
 
+        # If a building is selected, get printers from that building
+        self.get_printers_building = self.selectedComboBoxValue(self.combo_buildings)
+
+        if self.get_printers_building == '':
+            self.building_filter = False
+        else:
+            self.building_filter = True
+
         # Update Status Bar and Pulse Progress Bar
         progress_callback.emit({ "msg": "Fetching list of all printers in Jamf Pro...", "pb_type": "Pulse" })
 
         # Setup API Resource and Headers
         api_Resource_Printers = "{server}JSSResource/printers".format(server=self.jps_url)
-        headers = {'Accept': 'application/xml', 'Authorization': 'Basic {}'.format(jps_credentials)}
+        headers = { 'Accept': 'application/xml', 'Authorization': 'Basic {}'.format(jps_credentials)}
 
         try:
             # GET all printers from the JPS
-            response_get_all_printers = requests.get(url=api_Resource_Printers, headers=headers)
+            response_get_all_printers = requests.get(url=api_Resource_Printers, headers=headers, verify=False)
 
             # Verify response status code
             if response_get_all_printers.status_code != 200:
@@ -1119,12 +1134,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # Setup API Resource and Headers
         api_Resource_Printer_ID = "{server}JSSResource/printers/id/{id}".format(server=self.jps_url, id=printer_id)
-        headers = { 'Accept': 'application/xml', 'Authorization': 'Basic {}'.format(jps_credentials) }
+        headers = { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic {}'.format(jps_credentials)}
 
         try:
 
             # GET printer details from the JPS
-            response_get_printer = requests.get(url=api_Resource_Printer_ID, headers=headers)
+            response_get_printer = requests.get(url=api_Resource_Printer_ID, headers=headers, verify=False)
 
         except:
 
@@ -1152,64 +1167,52 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print(response_get_printer.text)
 
         # Extract XML response
-        printer_details = ElementTree.fromstring(response_get_printer.text)
+        #printer_details = ElementTree.fromstring(response_get_printer.text)
+        printer_details = response_get_printer.json()
+        building = printer_details['printer']['category']
 
-        # Doing some hackery to get custom details
-        try:
-            embedded_json = json.loads(printer_details.find('notes').text)
+        if self.building_filter == True: 
 
-        except:
-            pass
+            if self.get_printers_building == building:
+                
+                # Doing some hackery to get custom details
+                try:
+                    notes = printer_details['printer']['notes']
+                except:
+                    pass
 
-        try:
-            site = embedded_json["Site"]
+                try:
+                    created_by = (notes.split('Created By:')[1]).split(',')[0]
 
-        except:
-            site = "unassigned"
+                except:
+                    created_by = "unknown"
 
-        try:
-            created_by = embedded_json["Created_by"]
+                try:
+                    updated_by = (notes.split('Updated By:')[1]).split(',')[0]
 
-        except:
-            created_by = "unknown"
+                except:
+                    updated_by = "unknown"
 
-        try:
-            updated_by = embedded_json["Updated_by"]
+                # If the Printer's "assigned building" is in the list of buildings the building Admin has Enroll Permissions to, add it to a list.
+                if building in self.building_names:
 
-        except:
-            updated_by = "unknown"
+                    # Create Printer
+                    printer_object = Printer( 
+                        printer_id = printer_details['printer']['id'], 
+                        display_name = printer_details['printer']['name'], 
+                        cups_name = printer_details['printer']['CUPS_name'], 
+                        location = printer_details['printer']['location'], 
+                        device_uri = printer_details['printer']['uri'], 
+                        model = printer_details['printer']['model'], 
+                        ppd_path = printer_details['printer']['ppd'], 
+                        ppd_contents = printer_details['printer']['ppd_contents'], 
+                        building = building, 
+                        created_by = created_by, 
+                        updated_by = updated_by )
 
-        # Debugging
-        # print("ID:  "  + printer_details.find('id').text)
-        # print("Display Name:  "  + printer_details.find('name').text)
-        # print("CUPS Name:  " + printer_details.find('CUPS_name').text)
-        # print("Location:  " + printer_details.find('location').text)
-        # print("Device URI:  " + printer_details.find('uri').text)
-        # print("Model:  " + printer_details.find('model').text)
-        # print("Notes:  " + printer_details.find('notes').text)
-        # print("Site:  " + site)
-        # print("Created By:  " + created_by)
-        # print("Updated By:  " + updated_by)
-
-        # If the Printer's "assigned Site" is in the list of Sites the Site Admin has Enroll Permissions to, add it to a list.
-        if site in self.site_names:
-
-            # Create Printer
-            printer_object = Printer( 
-                printer_id = printer_details.find('id').text, 
-                display_name = printer_details.find('name').text, 
-                cups_name = printer_details.find('CUPS_name').text, 
-                location = printer_details.find('location').text, 
-                device_uri = printer_details.find('uri').text, 
-                model = printer_details.find('model').text, 
-                ppd_path = printer_details.find('ppd').text, 
-                ppd_contents = printer_details.find('ppd_contents').text, 
-                site = site, 
-                created_by = created_by, 
-                updated_by = updated_by )
-
-            # Add printer to list
-            self.jps_printer_list.append(printer_object)
+                    # Add printer to list
+                    self.jps_printer_list.append(printer_object)
+                    print("adding {} to list".format(printer_object.display_name))
 
         # Increment counter
         self.lookup_count = self.lookup_count + 1
@@ -1238,14 +1241,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.button_update_printer.setEnabled(False)
 
         # Get the selected items
-        selected_site = self.selectedComboBoxValue(self.combo_sites)
+        selected_building = self.selectedComboBoxValue(self.combo_buildings)
         selected_local_printer = self.selectedListValue(self.qlist_local_printers)
         selected_jps_printer = self.selectedComboBoxValue(self.combo_printers)
         # print("Selected local printer:  {}".format(selected_local_printer))
-        print("Selected printer to UPDATE '{}' in '{}'".format(selected_jps_printer, selected_site))
+        print("Selected printer to UPDATE '{}' in '{}'".format(selected_jps_printer, selected_building))
 
         # Verify all required items have a selected value
-        if selected_site == None or selected_local_printer == None or selected_jps_printer == None:
+        if selected_building == None or selected_local_printer == None or selected_jps_printer == None:
 
             # Update Status Bar and Pulse Progress Bar
             finished_callback.emit("You must select matching local and jps printers to update the printer in Jamf Pro.")
@@ -1279,20 +1282,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     <printer> \
                     <id>{id}</id> \
                     <name>{name}</name> \
-                    <category>Printers</category> \
+                    <category>{building}</category> \
                     <uri>{uri}</uri> \
                     <CUPS_name>{cups}</CUPS_name> \
                     <location>{location}</location> \
                     <model>{model}</model> \
                     <ppd>{cups}.ppd</ppd> \
                     <ppd_contents>{contents}</ppd_contents> \
-                    <notes>{{ \"Site\": \"{site}\", \"Created_by\": \"{created_by}\", \"Updated_by\": \"{updated_by}\"}}</notes> \
+                    <notes>{{ \"Created_by\": \"{created_by}\", \"Updated_by\": \"{updated_by}\"}}</notes> \
                     <ppd_path>{path}</ppd_path> \
                     </printer>".format(
                         id=jps_printer.printer_id, name=local_printer.display_name, 
                         uri=local_printer.device_uri, cups=local_printer.cups_name, 
                         location=local_printer.location, model=local_printer.model, 
-                        path=local_printer.ppd_path, contents=escape(local_printer.ppd_contents), site=selected_site, 
+                        path=local_printer.ppd_path, contents=escape(local_printer.ppd_contents), building=selected_building, 
                         created_by=jps_printer.created_by, updated_by=self.sa_username )
 
                 # Setup API Resource and Headers
@@ -1302,7 +1305,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 try:
 
                     # PUT to update a new printer in the JPS.
-                    response_update_printer = requests.put(url=api_Resource_Printers_Update, headers=headers, data=payload.encode('utf-8'))
+                    response_update_printer = requests.put(url=api_Resource_Printers_Update, headers=headers, verify=False, data=payload.encode('utf-8'))
 
                     if response_update_printer.status_code != 201:
 
@@ -1439,7 +1442,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 selected_printer = self.selectedListValue(self.qlist_local_printers)
                 printer_list = self.local_printer_list
 
-            elif sender == "combo_printers" or "combo_sites":
+            elif sender == "combo_printers" or "combo_buildings":
 
                 selected_printer = self.selectedComboBoxValue(self.combo_printers)
                 printer_list = self.jps_printer_list
@@ -1457,7 +1460,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     self.lineEdit_printer_device_uri.setText(printer.device_uri)
                     self.lineEdit_printer_cups_name.setText(printer.cups_name)
                     self.lineEdit_printer_ppd_file_path.setText(printer.ppd_path)
-                    self.lineEdit_site.setText(printer.site)
+                    self.lineEdit_building.setText(printer.building)
                     self.lineEdit_created_by.setText(printer.created_by)
                     self.lineEdit_updated_by.setText(printer.updated_by)
                     self.textEdit_printer_ppd_contents.setText(printer.ppd_contents)
@@ -1488,9 +1491,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 try:
 
                     # Create a token based on user provided credentials
-                    response_get_token = requests.post("{jps_url}/uapi/auth/tokens".format(jps_url=self.jps_url), auth=(self.sa_username, self.sa_password))
+                    response_get_token = requests.post("{jps_url}/uapi/auth/tokens".format(jps_url=self.jps_url), auth=(self.sa_username, self.sa_password), verify=False)
 
-                    # API Token for the Site Admin
+                    # API Token for the jamf Admin
                     self.api_token_results = {
                         "success": True if response_get_token.status_code == 200 else False,
                         "error":  response_get_token.text() if response_get_token.status_code != 200 else None,
@@ -1521,26 +1524,26 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             sender_parent.close()
 
 
-    def getSiteAccess(self, warning_callback):
+    def getbuildings(self, warning_callback):
         """
-        A helper function that retrieves the Sites an account has Enroll Permissions too.
+        A helper function that retrieves the buildings an account has Enroll Permissions too.
 
         Args:
             warning_callback:  A callback function to update the progress and status bars
         """
 
-        site_ids = []
-        self.site_names = []
-        self.site_names.append("") # Add an empty value to the beginning
+        building_ids = []
+        self.building_names = []
+        self.building_names.append("") # Add an empty value to the beginning
 
         try:
 
             # Setup API Resource and Headers
-            url = "{}/uapi/auth".format(self.jps_url)
-            headers = { "Authorization": "jamf-token {}".format(self.api_token_results['api_token']) }
+            url = "{}JSSResource/categories".format(self.jps_url)
+            headers = { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic {}'.format(jps_credentials) }
 
-            # GET All User Details
-            response_user_details = requests.get( url, headers=headers )
+            # GET All Category Details
+            response_category_details = requests.get( url, headers=headers, verify=False )
 
         except:
 
@@ -1552,20 +1555,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         try:
 
             # Get the response content from the API
-            user_details = response_user_details.json()
+            category_details = response_category_details.json()
 
-            for key in user_details["accountGroups"]:
+            for key in category_details["categories"]:
 
-                for privilege in key["privileges"]:
+                if key["name"].__contains__("Printers"):
 
-                    if privilege == "Enroll Computers and Mobile Devices":
-
-                        site_ids.append(key["siteId"])
-
-            for key in user_details['sites']:
-
-                if key['id'] in site_ids:
-                    self.site_names.append(key['name'])
+                        self.building_names.append(key["name"])
 
         except:
 
@@ -1591,16 +1587,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # Ensure the are JPS Printer before continuing.
             if len(self.jps_printer_list) > 0:
 
-                selected_site = self.selectedComboBoxValue(self.combo_sites)
+                selected_building = self.selectedComboBoxValue(self.combo_buildings)
 
                 # List to collect printers that are "assigned" to the selected Site.
-                matching_printers = [ printer.display_name for printer in self.jps_printer_list if printer.site == selected_site ]
+                matching_printers = [ printer.display_name for printer in self.jps_printer_list if printer.building == selected_building ]
 
                 # Enable ComboBox and clear its current items
                 self.combo_printers.setEnabled(True)
                 self.combo_printers.clear()
 
-                # If there were printers for the select Site, add them to the ComboBox Widget
+                # If there were printers for the select building, add them to the ComboBox Widget
                 if len(matching_printers) > 0:
 
                     self.combo_printers.addItems(sorted(matching_printers))
@@ -1703,7 +1699,7 @@ class Printer:
     An object to store printer configuration details in
     """
     # Initializer / Instance Attributes
-    def __init__(self, printer_id="local", ppd_contents = "", site = "", created_by = "", updated_by = "", **kwargs):
+    def __init__(self, printer_id="local", ppd_contents = "", building = "", created_by = "", updated_by = "", **kwargs):
         self.printer_id = printer_id
         self.display_name = kwargs['display_name']
         self.cups_name = kwargs['cups_name']
@@ -1712,7 +1708,7 @@ class Printer:
         self.device_uri = kwargs['device_uri']
         self.ppd_path = kwargs['ppd_path']
         self.ppd_contents = ppd_contents
-        self.site = site
+        self.building = building
         self.created_by = created_by
         self.updated_by = updated_by
 
@@ -1817,7 +1813,7 @@ if __name__ == "__main__":
     app_icon_url = "{}ui/images/settings/Printer.png".format(gui.jps_url)
 
     # Get the App Icon from Jamf Pro
-    response_image = requests.get(app_icon_url)
+    response_image = requests.get(app_icon_url, verify=False)
 
     if response_image.status_code == 200:
 

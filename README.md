@@ -1,21 +1,22 @@
 JamfProPrinterTool
 ======
 
-An App that allows Site Admins to manage printers "assigned" to their Site(s) in Jamf Pro.
+An App that allows techs to manage printers assigned to "buildings" (categories) in Jamf Pro. Ain't nobody got time for that.
+
+Forked from [MLBZ521/JamfProPrinterTool](https://github.com/MLBZ521/JamfProPrinterTool) as I needed it for buildings, not sites.
 
 <center><img src="https://github.com/mlbz521/JamfProPrinterTool/blob/master/Jamf Pro Printer Tool.png" /></center>
 
 
 ## About
 
-This application utilizes Python and the Qt for Python Library to create a GUI that allows Site Admins to provide full life-cycle management of their printers without needing assistance from Full Jamf Pro Admins.  They are able to Create, Update, and Delete printers within Site(s) they have permissions too.  In addition, they can review the printer configurations, both local and how they are currently configured in Jamf Pro.
+This application utilizes Python and the Qt for Python Library to create a GUI that allows techs to provide full life-cycle management of their printers without needing assistance from Full Jamf Pro Admins.  They are able to Create, Update, and Delete printers for any categories.  In addition, they can review the printer configurations, both local and how they are currently configured in Jamf Pro.
 
-Obviously this functionality is not built into Jamf Pro, so to "assign" printers to Sites, I am "tagging" printers to the Site that they "belong" too.  To accomplish this, I am nesting a JSON object within the Notes field.  It's slightly hacky, but it works!
-
-So, for existing printers, Site Admins would need to request printers to be assigned to the Sites that they should be assigned too.
-
+Obviously this functionality is not built into Jamf Pro, so to "assign" printers to a building, I have a category for each building and printer policies are assigned to buildings. Helpful for our 200+ printers.
 
 ## Details
+
+From MLBZ521:
 
 I took this approach so that I could pass an authorized set of credentials that would be able to utilize the Jamf Pro Classic API to be able manage Printers within Jamf Pro.
 
@@ -28,20 +29,25 @@ All that said, it's not perfect and I'm sure there are improvements to be had.
 
 Feature Requests and Pull Requests are welcome.  Feel free to contribute!
 
-These are the current items I plan to add based on items I did not implement before releasing and feedback from my Site Admins:
+These are the current items I plan to add based on items I did not implement before releasing:
   * After creating a printer, add to local list
   * After deleting a printer, remove from local list
   * Editable Device Details (update without having local printer of same name)
   * Retry getting a printers' details if the API call fails
   * ? Client side verbosity/debugging (GUI Enabled) ?
+  * Move between "buildings" without having to re-pull all printers
+  * Better error checking for error codes in jamf (printer name exists, etc...)
+  * Policy creation and/or policy request (slack, ticket, etc...)
 
 ##  Requirements
+
+jamf Pro categories that include the name "Printers" (for sorting printers in each building)
 
 The script was written using Python 3.8.5, but I believe most Python 3 versions should be supported.
 
 This tool requires the following packages and their dependencies:
   * cryptography
-  * PySide2 (for now v5.14.2.3 was used as several bugs were present in v5.15.x.x)
+  * PySide2
   * requests
 
 Please see the requirements.txt file for additional information.
