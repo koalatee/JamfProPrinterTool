@@ -1,4 +1,4 @@
-#!//usr/bin/python3
+#!//opt/EEMFrameworks/bin/python3
 # -*- coding: utf-8 -*-
 
 import argparse
@@ -13,6 +13,7 @@ import subprocess
 import sys
 import time
 import traceback
+import _tkinter
 
 from cryptography.fernet import Fernet
 from functools import partial
@@ -1834,6 +1835,8 @@ if __name__ == "__main__":
 
     # Call functions on load
     gui.run_get_local_printers()
+
+    print("printer loaded")
 
     # Show the GUI
     gui.show()
