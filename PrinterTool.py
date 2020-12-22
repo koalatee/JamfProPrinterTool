@@ -1,4 +1,4 @@
-#!//opt/EEMFrameworks/bin/python3
+#!//Usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import argparse
@@ -80,22 +80,22 @@ class Ui_MainWindow(object):
         self.progress_bar.setGeometry(QtCore.QRect(20, 460, 511, 31))
         self.progress_bar.setProperty("value", 0)
         self.progress_bar.setObjectName("progress_bar")
-        self.frame_buildings = QtWidgets.QFrame(self.centralwidget)
-        self.frame_buildings.setGeometry(QtCore.QRect(10, 10, 541, 81))
-        self.frame_buildings.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_buildings.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_buildings.setObjectName("frame_buildings")
-        self.label_buildings = QtWidgets.QLabel(self.frame_buildings)
-        self.label_buildings.setGeometry(QtCore.QRect(10, 10, 401, 16))
-        self.label_buildings.setObjectName("label_buildings")
-        self.button_get_buildings = QtWidgets.QPushButton(self.frame_buildings)
-        self.button_get_buildings.setGeometry(QtCore.QRect(10, 40, 112, 32))
-        self.button_get_buildings.setStatusTip("")
-        self.button_get_buildings.setObjectName("button_get_buildings")
-        self.combo_buildings = QtWidgets.QComboBox(self.frame_buildings)
-        self.combo_buildings.setEnabled(False)
-        self.combo_buildings.setGeometry(QtCore.QRect(130, 40, 231, 32))
-        self.combo_buildings.setObjectName("combo_buildings")
+        self.frame_categories = QtWidgets.QFrame(self.centralwidget)
+        self.frame_categories.setGeometry(QtCore.QRect(10, 10, 541, 81))
+        self.frame_categories.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_categories.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_categories.setObjectName("frame_categories")
+        self.label_categories = QtWidgets.QLabel(self.frame_categories)
+        self.label_categories.setGeometry(QtCore.QRect(10, 10, 401, 16))
+        self.label_categories.setObjectName("label_categories")
+        self.button_get_categories = QtWidgets.QPushButton(self.frame_categories)
+        self.button_get_categories.setGeometry(QtCore.QRect(10, 40, 112, 32))
+        self.button_get_categories.setStatusTip("")
+        self.button_get_categories.setObjectName("button_get_categories")
+        self.combo_categories = QtWidgets.QComboBox(self.frame_categories)
+        self.combo_categories.setEnabled(False)
+        self.combo_categories.setGeometry(QtCore.QRect(130, 40, 231, 32))
+        self.combo_categories.setObjectName("combo_categories")
         self.frame_jps_printers = QtWidgets.QFrame(self.centralwidget)
         self.frame_jps_printers.setGeometry(QtCore.QRect(10, 320, 541, 131))
         self.frame_jps_printers.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -182,9 +182,9 @@ class Ui_MainWindow(object):
         self.lineEdit_printer_cups_name.setReadOnly(True)
         self.lineEdit_printer_cups_name.setObjectName("lineEdit_printer_cups_name")
         self.gridLayout.addWidget(self.lineEdit_printer_cups_name, 4, 2, 1, 1)
-        self.label_building = QtWidgets.QLabel(self.layoutWidget)
-        self.label_building.setObjectName("label_building")
-        self.gridLayout.addWidget(self.label_building, 6, 0, 1, 1)
+        self.label_category = QtWidgets.QLabel(self.layoutWidget)
+        self.label_category.setObjectName("label_category")
+        self.gridLayout.addWidget(self.label_category, 6, 0, 1, 1)
         self.label_printer_ppd_path = QtWidgets.QLabel(self.layoutWidget)
         self.label_printer_ppd_path.setObjectName("label_printer_ppd_path")
         self.gridLayout.addWidget(self.label_printer_ppd_path, 5, 0, 1, 1)
@@ -209,10 +209,10 @@ class Ui_MainWindow(object):
         self.label_printer_location = QtWidgets.QLabel(self.layoutWidget)
         self.label_printer_location.setObjectName("label_printer_location")
         self.gridLayout.addWidget(self.label_printer_location, 1, 0, 1, 1)
-        self.lineEdit_building = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit_building.setReadOnly(True)
-        self.lineEdit_building.setObjectName("lineEdit_building")
-        self.gridLayout.addWidget(self.lineEdit_building, 6, 2, 1, 1)
+        self.lineEdit_category = QtWidgets.QLineEdit(self.layoutWidget)
+        self.lineEdit_category.setReadOnly(True)
+        self.lineEdit_category.setObjectName("lineEdit_category")
+        self.gridLayout.addWidget(self.lineEdit_category, 6, 2, 1, 1)
         self.lineEdit_created_by = QtWidgets.QLineEdit(self.layoutWidget)
         self.lineEdit_created_by.setReadOnly(True)
         self.lineEdit_created_by.setObjectName("lineEdit_created_by")
@@ -249,8 +249,8 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuSettings.menuAction())
 
-        QtWidgets.QWidget.setTabOrder(self.button_get_buildings, self.combo_buildings)
-        QtWidgets.QWidget.setTabOrder(self.combo_buildings, self.qlist_local_printers)
+        QtWidgets.QWidget.setTabOrder(self.button_get_categories, self.combo_categories)
+        QtWidgets.QWidget.setTabOrder(self.combo_categories, self.qlist_local_printers)
         QtWidgets.QWidget.setTabOrder(self.qlist_local_printers, self.button_create)
         QtWidgets.QWidget.setTabOrder(self.button_create, self.button_get_printers)
         QtWidgets.QWidget.setTabOrder(self.button_get_printers, self.combo_printers)
@@ -262,8 +262,8 @@ class Ui_MainWindow(object):
         QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_model, self.lineEdit_printer_device_uri)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_device_uri, self.lineEdit_printer_cups_name)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_cups_name, self.lineEdit_printer_ppd_file_path)
-        QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_ppd_file_path, self.lineEdit_building)
-        QtWidgets.QWidget.setTabOrder(self.lineEdit_building, self.lineEdit_created_by)
+        QtWidgets.QWidget.setTabOrder(self.lineEdit_printer_ppd_file_path, self.lineEdit_category)
+        QtWidgets.QWidget.setTabOrder(self.lineEdit_category, self.lineEdit_created_by)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_created_by, self.lineEdit_updated_by)
         QtWidgets.QWidget.setTabOrder(self.lineEdit_updated_by, self.textEdit_printer_ppd_contents)
 
@@ -273,8 +273,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Jamf Pro Printer Tool"))
-        self.label_buildings.setText(_translate("MainWindow", "Select the Building to work in:"))
-        self.button_get_buildings.setText(_translate("MainWindow", "Get Buildings"))
+        self.label_categories.setText(_translate("MainWindow", "Select the Building to work in:"))
+        self.button_get_categories.setText(_translate("MainWindow", "Get Buildings"))
         self.label_printers.setText(_translate("MainWindow", "Select the printer you want to modify:"))
         self.button_get_printers.setText(_translate("MainWindow", "Get Printers"))
         self.button_update_printer.setText(_translate("MainWindow", "Update Printer"))
@@ -286,7 +286,7 @@ class Ui_MainWindow(object):
         self.label_printer_cups_name.setText(_translate("MainWindow", "CUPS Name"))
         self.label_printer_device_uri.setText(_translate("MainWindow", "Device URI"))
         self.label_printer_model.setText(_translate("MainWindow", "Model"))
-        self.label_building.setText(_translate("MainWindow", "building"))
+        self.label_category.setText(_translate("MainWindow", "category"))
         self.label_printer_ppd_path.setText(_translate("MainWindow", "PPD File Path"))
         self.label_printer_ppd_contents.setText(_translate("MainWindow", "PPD Contents"))
         self.label_printer_display_name.setText(_translate("MainWindow", "Display Name"))
@@ -492,7 +492,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.actionClearAPIToken.triggered.connect(self.clearAPIToken)
 
         # When Get buildings button is clicked
-        self.button_get_buildings.clicked.connect(self.run_get_building_access)
+        self.button_get_categories.clicked.connect(self.run_get_category_access)
 
         # When a printer is selected in the QList of local printers
         self.qlist_local_printers.currentTextChanged.connect(self.displayPrinterDetails)
@@ -515,7 +515,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.button_delete_printer.clicked.connect(self.run_delete_printer)
 
         # Repopulate the combobox when the building combobox value has changed
-        self.combo_buildings.currentTextChanged.connect(self.populatePrinterComboBox)
+        self.combo_categories.currentTextChanged.connect(self.populatePrinterComboBox)
 
         # Setup to display login window/login prompt
         self.displayLoginWindow = WorkerSignals()
@@ -528,8 +528,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def run_get_local_printers(self):
         self.worker_thread(self.get_local_printers)
 
-    def run_get_building_access(self):
-        self.worker_thread(self.clickedGetbuildings)
+    def run_get_category_access(self):
+        self.worker_thread(self.clickedGetCategories)
 
     def run_create_printer(self):
         self.worker_thread(self.clickedCreatePrinter)
@@ -825,9 +825,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         finished_callback.emit("Querying local printers...  [COMPLETE]")
 
 
-    def clickedGetbuildings(self, progress_callback, finished_callback, warning_callback):
+    def clickedGetCategories(self, progress_callback, finished_callback, warning_callback):
         """
-        Handles the "Get buildings" button click.
+        Handles the "Get buildings" button click (even though searching categories).
 
         Args:
             progress_callback:  A callback function to update the progress and status bars
@@ -884,24 +884,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 # Update Status Bar
                 progress_callback.emit({ "msg": "Collecting jamf building info..." })
 
-                # Get Site Access Function
-                self.getbuildings(warning_callback)
+                # Get Categories Function
+                self.getcategories(warning_callback)
 
-                # print("Number of buildings:  {}".format(len(self.building_names)))
-                # print("List of buildings:  {}".format(self.building_names))
                 progress_callback.emit({ "msg": "success, populating..." })
 
-                if len(self.building_names) > 1:
+                if len(self.category_names) > 1:
 
                     # Update Status Bar
                     progress_callback.emit({ "msg": "Collecting Building Access Permissions...  [SUCCESS]" })
-                    #print(building_names)
-                    print(self.building_names)
+                    # print(self.category_names)
 
                     # Enable the building ComboBox, clear it,and add the building names
-                    self.combo_buildings.setEnabled(True)
-                    self.combo_buildings.clear()
-                    self.combo_buildings.addItems(sorted(self.building_names))
+                    self.combo_categories.setEnabled(True)
+                    self.combo_categories.clear()
+                    self.combo_categories.addItems(sorted(self.category_names))
 
                     # Update Status Bar and Progress Bar
                     finished_callback.emit("Buildings populated")
@@ -939,12 +936,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         progress_callback.emit({ "msg": "Creating selected printer in Jamf Pro...", "pb_type": "Pulse" })
 
         # Get the selected values
-        selected_building = self.selectedComboBoxValue(self.combo_buildings)
+        selected_category = self.selectedComboBoxValue(self.combo_categories)
         selected_local_printer = self.selectedListValue(self.qlist_local_printers)
-        print("Selected printer to CREATE '{}' in '{}'".format(selected_local_printer, selected_building))
+        print("Selected printer to CREATE '{}' in '{}'".format(selected_local_printer, selected_category))
 
         # Ensure both of the required items have a selection
-        if selected_building == None or selected_local_printer == None:
+        if selected_category == None or selected_local_printer == None:
 
             # Update Status Bar and Progress Bar
             finished_callback.emit("You must select a local printer and building to create a new printer in Jamf Pro.")
@@ -953,6 +950,59 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.button_create.setEnabled(True)
 
             return
+
+        #get building name from category name (since almost the same)
+        building_name = selected_category.replace(' Printers', '')
+        # get building ID
+        api_Resource_Buildings = "{}JSSResource/buildings".format(self.jps_url)
+        headers = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Basic {}'.format(jps_credentials)}
+
+        try:
+
+            # GET all buildings from the JPS
+            response_get_all_buildings = requests.get(url=api_Resource_Buildings, headers=headers, verify=False)
+
+            # Verify response status code
+            if response_get_all_buildings.status_code != 200:
+
+                # Update Status Bar and Pulse Progress Bar
+                warning_callback.emit("ERROR:  Failed to fetch data from Jamf Pro")
+                print("FAILED to get data for creating policy!")
+                print("Status Code:  {}".format(response_get_all_buildings.status_code))
+                print(response_get_all_buildings.text)
+
+                # Enable Buttons
+                self.button_get_printers.setEnabled(True)
+
+                return
+
+        except:
+
+            # Update Status Bar and Pulse Progress Bar
+            warning_callback.emit("Failed to connect to the Jamf Pro Server.")
+
+            # Enable Buttons
+            self.buttons_create.setEnabled(True)
+
+            return
+
+        # Update Status Bar
+        progress_callback.emit({ "msg": "Fetching details from Jamf Pro...", "pb_type": "Pulse" })
+        
+        building_details = response_get_all_buildings.json()
+        
+        for key in building_details["buildings"]:
+            
+            if key["name"].__contains__(building_name):
+                
+                self.building_id = key["id"]        
+
+        # get selected_building (category) ID
+        for key in self.category_details["categories"]:
+
+            if key["name"].__contains__(selected_category):
+
+                self.category_id = key["id"]
 
         # Loop through the list of printers
         for printer in self.local_printer_list:
@@ -963,7 +1013,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 payload = " \
                     <printer> \
                     <name>{name}</name> \
-                    <category>Printers</category> \
+                    <category>{category}</category> \
                     <uri>{uri}</uri> \
                     <CUPS_name>{cups}</CUPS_name> \
                     <location>{location}</location> \
@@ -976,7 +1026,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         name=printer.display_name, uri=printer.device_uri, 
                         cups=printer.cups_name, location=printer.location, 
                         model=printer.model, contents=escape(printer.ppd_contents), 
-                        building=selected_building, user=self.sa_username, path=printer.ppd_path)
+                        category=selected_category, user=self.sa_username, path=printer.ppd_path)
 
                 # Setup API Resource and Headers
                 api_Resource_Printers_Create = "{}JSSResource/printers/id/0".format(self.jps_url)
@@ -999,10 +1049,140 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     else:
 
                         # Update Status Bar and Progress Bar
-                        finished_callback.emit("Creating selected printer in Jamf Pro...  [COMPLETE]")
+                        progress_callback.emit({"msg": "Selected printer created in Jamf Pro... ", "pb_type": "Pulse" })
 
-                        # post ticket (using runbook)
-                        #try:
+                        # get the ID of the printer that was just created
+                        new_printer = ElementTree.fromstring(response_create_printer.text)
+                        new_printer_id = new_printer.find('id').text
+
+                        # get an icon url (requires an existing printer policy)
+                        # looping through existing policies assigned to printer category to find an icon... 
+                        headers = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Basic {}'.format(jps_credentials)}
+                        self.icon_id = ''
+                        
+                        for category in self.category_names:
+                            
+                            if self.icon_id != '':
+                                
+                                break
+
+                            # skip the first blank one
+                            if category == '' or category.__contains__('/'):
+                                
+                                continue
+                            
+                            category_fixed = category.replace(' ', '%20')
+                            
+                            # set the url
+                            api_Resource_Category_Policies = "{url}JSSResource/policies/category/{category}".format(url=self.jps_url, category=category_fixed)
+                            response_Category_Policies = requests.get(url=api_Resource_Category_Policies, headers=headers, verify=False)
+                            Category_Policies = response_Category_Policies.json()
+
+                            progress_callback.emit({"msg": "Gathering information to create new policy in Jamf Pro... ", "pb_type": "Pulse" })
+                            
+                            # loop through the IDs of each printer policy
+                            for key in Category_Policies['policies']:
+                                
+                                api_Policy_Category = "{url}JSSResource/policies/id/{id}".format(url=self.jps_url, id=key['id'])
+                                response_Policy_Category = requests.get(url=api_Policy_Category, headers=headers, verify=False)
+                                
+                                Policy_Category = response_Policy_Category.json()
+                                
+                                # look for a printer policy with the icon name of "printer" and then use that
+                                if Policy_Category['policy']['self_service']['self_service_icon']['filename'].__contains__('printer'):
+                                    
+                                    self.icon_id = Policy_Category['policy']['self_service']['self_service_icon']['id']
+                                    self.icon_name = Policy_Category['policy']['self_service']['self_service_icon']['filename']
+                                    self.icon_uri = Policy_Category['policy']['self_service']['self_service_icon']['uri']
+                                    
+                                    break
+
+                        progress_callback.emit({"msg": "Creating policy with selected printer in Jamf Pro...", "pb_type": "Pulse" })
+
+                        # format URL and header
+                        api_Resource_Policy_Create = "{}JSSResource/policies/id/0".format(self.jps_url)
+                        headers = {'Content-Type': 'application/xml', 'Authorization': 'Basic {}'.format(jps_credentials)}
+                        
+                        # post ticket (using API)
+                        policy_payload = " \
+                            <policy> \
+                            <general> \
+                            <name>{printer_name}</name> \
+                            <enabled>true</enabled> \
+                            <trigger>USER_INITIATED</trigger> \
+                            <frequency>Ongoing</frequency> \
+                            <category> \
+                            <id>{category_id}</id> \
+                            <name>{category_name}</name>\
+                            </category> \
+                            <network_limitations> \
+                            <minimum_network_connection>No Minimum</minimum_network_connection> \
+                            <any_ip_address>true</any_ip_address> \
+                            </network_limitations> \
+                            <site> \
+                            <id>-1</id> \
+                            <name>None</name> \
+                            </site> \
+                            </general> \
+                            <scope> \
+                            <all_computers>false</all_computers> \
+                            <buildings> \
+                            <building> \
+                            <id>{building_id}</id> \
+                            <name>{building_name}</name> \
+                            </building> \
+                            </buildings> \
+                            </scope> \
+                            <self_service> \
+                            <use_for_self_service>true</use_for_self_service> \
+                            <self_service_display_name>{printer_name}</self_service_display_name> \
+                            <install_button_text>Add Printer</install_button_text> \
+                            <reinstall_button_text>Reinstall</reinstall_button_text> \
+                            <self_service_icon> \
+                            <id>{icon_id}</id> \
+                            <filename>{icon_name}</filename> \
+                            <uri>{icon_url}</uri> \
+                            </self_service_icon> \
+                            <self_service_categories> \
+                            <category> \
+                            <id>{category_id}</id> \
+                            <name>{category_name}</name> \
+                            <display_in>true</display_in> \
+                            <feature_in>false</feature_in> \
+                            </category> \
+                            </self_service_categories> \
+                            </self_service> \
+                            <printers> \
+                            <printer> \
+                            <id>{printer_id}</id> \
+                            <name>{printer_name}</name> \
+                            <action>install</action> \
+                            <make_default>false</make_default> \
+                            </printer> \
+                            </printers> \
+                            </policy>".format(
+                                printer_name=printer.display_name, printer_id=new_printer_id, 
+                                category_id=self.category_id, category_name=selected_category, 
+                                building_id=self.building_id, building_name=building_name, 
+                                icon_id=self.icon_id, icon_name=self.icon_name, icon_url=self.icon_uri)
+
+                        try:
+                            
+                            response_create_printer = requests.post(url=api_Resource_Policy_Create, headers=headers, verify=False, data=policy_payload.encode('utf-8'))
+
+                            if response_create_printer.status_code != 201:
+
+                                warning_callback.emit("ERROR:  Failed to create policy in Jamf Pro")
+                                time.sleep(2)
+
+                            else:
+
+                                finished_callback.emit("Printer and policy created in Jamf Pro...  [COMPLETE]")
+
+                        except:
+
+                            warning_callback.emit("ERROR:  Failed to create new policy in Jamf Pro")
+                            time.sleep(2)
 
                 except:
 
@@ -1029,12 +1209,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.button_get_printers.setEnabled(False)
 
         # If a building is selected, get printers from that building
-        self.get_printers_building = self.selectedComboBoxValue(self.combo_buildings)
+        self.get_printers_category = self.selectedComboBoxValue(self.combo_categories)
 
-        if self.get_printers_building == '':
-            self.building_filter = False
+        if self.get_printers_category == '':
+            self.category_filter = False
         else:
-            self.building_filter = True
+            self.category_filter = True
 
         # Update Status Bar and Pulse Progress Bar
         progress_callback.emit({ "msg": "Fetching list of all printers in Jamf Pro...", "pb_type": "Pulse" })
@@ -1170,11 +1350,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Extract XML response
         #printer_details = ElementTree.fromstring(response_get_printer.text)
         printer_details = response_get_printer.json()
-        building = printer_details['printer']['category']
+        category = printer_details['printer']['category']
 
-        if self.building_filter == True: 
+        if self.category_filter == True: 
 
-            if self.get_printers_building == building:
+            if self.get_printers_category == category:
                 
                 # Doing some hackery to get custom details
                 try:
@@ -1195,7 +1375,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     updated_by = "unknown"
 
                 # If the Printer's "assigned building" is in the list of buildings the building Admin has Enroll Permissions to, add it to a list.
-                if building in self.building_names:
+                if category in self.category_names:
 
                     # Create Printer
                     printer_object = Printer( 
@@ -1207,7 +1387,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         model = printer_details['printer']['model'], 
                         ppd_path = printer_details['printer']['ppd'], 
                         ppd_contents = printer_details['printer']['ppd_contents'], 
-                        building = building, 
+                        category = category, 
                         created_by = created_by, 
                         updated_by = updated_by )
 
@@ -1242,14 +1422,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.button_update_printer.setEnabled(False)
 
         # Get the selected items
-        selected_building = self.selectedComboBoxValue(self.combo_buildings)
+        selected_category = self.selectedComboBoxValue(self.combo_categories)
         selected_local_printer = self.selectedListValue(self.qlist_local_printers)
         selected_jps_printer = self.selectedComboBoxValue(self.combo_printers)
         # print("Selected local printer:  {}".format(selected_local_printer))
-        print("Selected printer to UPDATE '{}' in '{}'".format(selected_jps_printer, selected_building))
+        print("Selected printer to UPDATE '{}' in '{}'".format(selected_jps_printer, selected_category))
 
         # Verify all required items have a selected value
-        if selected_building == None or selected_local_printer == None or selected_jps_printer == None:
+        if selected_category == None or selected_local_printer == None or selected_jps_printer == None:
 
             # Update Status Bar and Pulse Progress Bar
             finished_callback.emit("You must select matching local and jps printers to update the printer in Jamf Pro.")
@@ -1283,7 +1463,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     <printer> \
                     <id>{id}</id> \
                     <name>{name}</name> \
-                    <category>{building}</category> \
+                    <category>{category}</category> \
                     <uri>{uri}</uri> \
                     <CUPS_name>{cups}</CUPS_name> \
                     <location>{location}</location> \
@@ -1296,7 +1476,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         id=jps_printer.printer_id, name=local_printer.display_name, 
                         uri=local_printer.device_uri, cups=local_printer.cups_name, 
                         location=local_printer.location, model=local_printer.model, 
-                        path=local_printer.ppd_path, contents=escape(local_printer.ppd_contents), building=selected_building, 
+                        path=local_printer.ppd_path, contents=escape(local_printer.ppd_contents), category=selected_category, 
                         created_by=jps_printer.created_by, updated_by=self.sa_username )
 
                 # Setup API Resource and Headers
@@ -1372,7 +1552,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             try:
 
                 # PUT to update a new printer in the JPS.
-                response_delete_printer = requests.delete(url=api_Resource_Printers_Delete, headers=headers)
+                response_delete_printer = requests.delete(url=api_Resource_Printers_Delete, headers=headers, verify=False)
 
                 if response_delete_printer.status_code != 200:
 
@@ -1386,7 +1566,66 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 else:
 
                     # Update Status Bar and Progress Bar
-                    finished_callback.emit("Delete [{}] in Jamf Pro...  [COMPLETE]".format(selected_jps_printer))
+                    progress_callback.emit({"msg": "Delete of [{}] in Jamf Pro...  [COMPLETE]".format(selected_jps_printer), "pb_type": "Pulse" })
+                    time.sleep(2)
+
+                    # info needed to delete policy
+                    category_fixed = jps_printer.category.replace(' ', '%20')
+                    api_Resource_Category_Policies = "{jps_url}JSSResource/policies/category/{category}".format(jps_url=self.jps_url, category=category_fixed)
+                    headers = { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic {}'.format(jps_credentials) }
+
+                    try:
+
+                        progress_callback.emit({"msg": "Preparing to delete associated policy... ", "pb_type": "Pulse" })
+                        response_Category_Policies = requests.get(url=api_Resource_Category_Policies, headers=headers, verify=False)
+
+                        Category_Policies = response_Category_Policies.json()
+
+                        # make sure we're using the right one
+                        for key in Category_Policies['policies']:
+
+                            if key['name'].__contains__(selected_jps_printer):
+                                
+                                # set ID and name for future
+                                self.policy_id = key['id']
+                                self.policy_name = key['name']
+
+                                break
+                        
+                        # Actual policy to delete
+                        api_Resource_Policy_Delete = "{jps_url}JSSResource/policies/id/{id}".format(jps_url=self.jps_url, id=self.policy_id)
+                        headers = { 'Content-Type': 'application/xml', 'Authorization': 'Basic {}'.format(jps_credentials) }
+                        
+                        # try to delete printer
+                        try:
+
+                            response_Policy_Delete = requests.delete(url=api_Resource_Policy_Delete, headers = headers, verify=False)
+
+                            if response_Policy_Delete.status_code != 200:
+
+                                # Update Status Bar and Pulse Progress Bar
+                                warning_callback.emit("ERROR:  Failed to delete policy [{}] in Jamf Pro".format(self.policy_name))
+                                print("FAILED to delete policy!")
+                                print("Status Code:  {}".format(response_Policy_delete.status_code))
+                                print("URI:  {}".format(api_Resource_Policy_Delete))
+                                print(response_Policy_Delete.text)
+                            
+                            else:
+
+                                # Update Status Bar and Pulse Progress Bar
+                                finished_callback.emit("Delete of [{}] in Jamf Pro...   [COMPLETE]".format(self.policy_name))
+                        
+                        except:
+
+                            # Update Status Bar and Pulse Progress Bar
+                            warning_callback.emit("Failed to delete policy in Jamf Pro")
+                            time.sleep(2)
+
+                    except:
+
+                        # Update Status Bar and Pulse Progress Bar
+                        warning_callback.emit("Failed to connect to Jamf Pro")
+                        time.sleep(2)
 
             except:
 
@@ -1443,7 +1682,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 selected_printer = self.selectedListValue(self.qlist_local_printers)
                 printer_list = self.local_printer_list
 
-            elif sender == "combo_printers" or "combo_buildings":
+            elif sender == "combo_printers" or "combo_categories":
 
                 selected_printer = self.selectedComboBoxValue(self.combo_printers)
                 printer_list = self.jps_printer_list
@@ -1461,7 +1700,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     self.lineEdit_printer_device_uri.setText(printer.device_uri)
                     self.lineEdit_printer_cups_name.setText(printer.cups_name)
                     self.lineEdit_printer_ppd_file_path.setText(printer.ppd_path)
-                    self.lineEdit_building.setText(printer.building)
+                    self.lineEdit_category.setText(printer.category)
                     self.lineEdit_created_by.setText(printer.created_by)
                     self.lineEdit_updated_by.setText(printer.updated_by)
                     self.textEdit_printer_ppd_contents.setText(printer.ppd_contents)
@@ -1525,7 +1764,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             sender_parent.close()
 
 
-    def getbuildings(self, warning_callback):
+    def getcategories(self, warning_callback):
         """
         A helper function that retrieves the buildings an account has Enroll Permissions too.
 
@@ -1533,9 +1772,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             warning_callback:  A callback function to update the progress and status bars
         """
 
-        building_ids = []
-        self.building_names = []
-        self.building_names.append("") # Add an empty value to the beginning
+        self.category_names = []
+        self.category_names.append("") # Add an empty value to the beginning
 
         try:
 
@@ -1556,13 +1794,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         try:
 
             # Get the response content from the API
-            category_details = response_category_details.json()
+            self.category_details = response_category_details.json()
 
-            for key in category_details["categories"]:
+            for key in self.category_details["categories"]:
 
                 if key["name"].__contains__("Printers"):
 
-                        self.building_names.append(key["name"])
+                        self.category_names.append(key["name"])
 
         except:
 
@@ -1588,10 +1826,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # Ensure the are JPS Printer before continuing.
             if len(self.jps_printer_list) > 0:
 
-                selected_building = self.selectedComboBoxValue(self.combo_buildings)
+                selected_category = self.selectedComboBoxValue(self.combo_categories)
 
                 # List to collect printers that are "assigned" to the selected Site.
-                matching_printers = [ printer.display_name for printer in self.jps_printer_list if printer.building == selected_building ]
+                matching_printers = [ printer.display_name for printer in self.jps_printer_list if printer.category == selected_category ]
 
                 # Enable ComboBox and clear its current items
                 self.combo_printers.setEnabled(True)
@@ -1700,7 +1938,7 @@ class Printer:
     An object to store printer configuration details in
     """
     # Initializer / Instance Attributes
-    def __init__(self, printer_id="local", ppd_contents = "", building = "", created_by = "", updated_by = "", **kwargs):
+    def __init__(self, printer_id="local", ppd_contents = "", category = "", created_by = "", updated_by = "", **kwargs):
         self.printer_id = printer_id
         self.display_name = kwargs['display_name']
         self.cups_name = kwargs['cups_name']
@@ -1709,7 +1947,7 @@ class Printer:
         self.device_uri = kwargs['device_uri']
         self.ppd_path = kwargs['ppd_path']
         self.ppd_contents = ppd_contents
-        self.building = building
+        self.category = category
         self.created_by = created_by
         self.updated_by = updated_by
 
