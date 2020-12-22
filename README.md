@@ -1,7 +1,7 @@
 JamfProPrinterTool
 ======
 
-An App that allows techs to manage printers assigned to "buildings" (categories) in Jamf Pro. Ain't nobody got time for that.
+An App that allows techs to manage printers assigned to "buildings" (categories) in Jamf Pro and automatically create/delete policies. Ain't nobody got time for that.
 
 Forked from [MLBZ521/JamfProPrinterTool](https://github.com/MLBZ521/JamfProPrinterTool) as I needed it for buildings, not sites.
 
@@ -37,7 +37,7 @@ These are the current items I plan to add based on items I did not implement bef
   * ? Client side verbosity/debugging (GUI Enabled) ?
   * Move between "buildings" without having to re-pull all printers
   * Better error checking for error codes in jamf (printer name exists, etc...)
-  * Policy creation and/or policy request (slack, ticket, etc...)
+  * [complete - creates policy in jamf when printer added] Policy creation 
 
 ##  Requirements
 
@@ -58,6 +58,8 @@ Please see the requirements.txt file for additional information.
 Obviously, Python 3 and the above required Libraries will be required on any system that runs this script.  You can deploy a relocatable Python framework to support this.  See Greg Neagle's [Relocatable Python Framework](https://github.com/gregneagle/relocatable-python) and the [MacAdmins Python](https://github.com/macadmins/python) for details.
 
 Then you'll need a Jamf Pro Account with CRUD to the Printer Object type.
+  * Add CRUD to Policies as well for policy creation/deletion when a printer is created/deleted
+  * This is designed to work if you have Category as "$BUILDING Printers" and Building as "$BUILDING"
 
 I encrypt the credentials using the cryptography.fernet module.  To encrypt your credentials:
 
